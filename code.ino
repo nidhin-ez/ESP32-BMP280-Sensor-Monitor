@@ -24,6 +24,13 @@ typedef struct{
 
 sensorData sensor = {0};
 
+void displayStatus(const char* message);
+bool readSensor(sensorData* s);
+bool initializeBmp();
+void printSensorData(const sensorData* data);
+void displayData(const sensorData* data);
+void failureCount();
+
 bool readSensor(sensorData* s){
   s->temp =  bmp.readTemperature();
   s->pressure = bmp.readPressure()/100.0F;
